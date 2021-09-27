@@ -1,0 +1,50 @@
+.searchCity {
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: italic;
+
+  width: 79%;
+
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+
+  margin-bottom: 10px;
+  margin-right: 6px;
+}
+
+.searchButton {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: black;
+  background-color: #dfd4d5;
+
+  border: 1px solid #e2c9cc;
+  border-radius: 0.25rem;
+  transition: all 0.4s ease-in-out;
+  margin-right: 6px;
+}
+
+.searchButton:hover {
+  border-color: #fff;
+  background-color: white;
+  color: black;
+}
+.locationIcon {
+  font-size: 25px;
+  padding: 0 8px 0 8px;
+  background-color: #dfd4d5;
+  border: none;
+  border-radius: 7px;
+}
+
+.locationIcon:hover {
+  background-color: white;
+}
