@@ -1,6 +1,6 @@
-.CurrentDate {
-  font-family: Helvetica, Arial, sans-serif;
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
+.CityDisplay {
+  font-family: "Comfortaa", cursive;
+  font-size: 50px;
+  color: #71d2f8;
+  text-shadow: 3px 2px 1px black;
 }

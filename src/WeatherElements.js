@@ -1,7 +1,7 @@
 import React from "react";
-import "./ForecastElements.css";
+import "./WeatherElements.css";
 
-export default function ForecastElements() {
+export default function WeatherElements() {
   return (
     <div>
       <div className="row details">

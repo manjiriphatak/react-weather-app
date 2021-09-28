@@ -5,11 +5,13 @@ import CurrentDate from "./CurrentDate";
 import CityDisplay from "./CityDisplay";
 import DisplayTemperature from "./DisplayTemperature";
 import TempDescription from "./TempDescription";
-import ForecastElements from "./ForecastElements";
+import WeatherElements from "./WeatherElements";
+import Forecast from "./Forecast";
+import Footer from "./Footer";
 
 export default function App() {
   return (
-    <div>
+    <div className="container">
       <div className="App">
         <div className="row">
           <div className="col-sm-2 col-md-12 col-lg-4">
@@ -34,10 +36,13 @@ export default function App() {
             <TempDescription />
             <hr />
 
-            <ForecastElements />
+            <WeatherElements />
           </div>
         </div>
+        <hr />
+        <Forecast />
       </div>
+      <Footer />
     </div>
   );
 }

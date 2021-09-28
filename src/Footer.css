@@ -1,0 +1,13 @@
+.footer {
+  text-align: left;
+  margin-left: 9px;
+  color: #161e20;
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #161e20;
+  text-shadow: 1px 1px 1px rgb(128, 128, 128);
+}

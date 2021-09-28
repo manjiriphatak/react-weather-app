@@ -1,0 +1,21 @@
+.forcast {
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.forecastContainer {
+  display: inline-block;
+  border: 1px solid #e2c9cc;
+  box-shadow: 1px 1px 1px 0.5px grey;
+  border-radius: 30px;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.forecastIcon {
+  padding-top: 10px;
+  cursor: default;
+}
