@@ -1,11 +1,7 @@
 import "./App.css";
 
 import Search from "./Search";
-import CurrentDate from "./CurrentDate";
-import CityDisplay from "./CityDisplay";
-import DisplayTemperature from "./DisplayTemperature";
-import TempDescription from "./TempDescription";
-import WeatherElements from "./WeatherElements";
+
 import Forecast from "./Forecast";
 import Footer from "./Footer";
 
@@ -26,17 +22,7 @@ export default function App() {
 
           <div className="col-sm-4 col-md-12 col-lg-8">
             <h1 className="card-title heading">The Weather Project</h1>
-            <Search />
-            <CurrentDate />
-
-            <hr />
-
-            <CityDisplay />
-            <DisplayTemperature />
-            <TempDescription />
-            <hr />
-
-            <WeatherElements />
+            <Search defaultCity="Toronto" />
           </div>
         </div>
         <hr />
