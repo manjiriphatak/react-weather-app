@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import "./Search.css";
 import axios from "axios";
 import CurrentDate from "./CurrentDate";
-import CityDisplay from "./CityDisplay";
-import DisplayTemperature from "./DisplayTemperature";
-import TempDescription from "./TempDescription";
-import WeatherElements from "./WeatherElements";
+
+import TemperatureDisplay from "./TemperatureDisplay";
 
 export default function Search(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -14,16 +12,36 @@ export default function Search(props) {
   function showTemperature(response) {
     setWeather({
       ready: true,
+
       displayCity: response.data.name,
+      temperature: Math.round(response.data.main.temp),
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      feelsLike: response.data.main.feels_like,
+      minTemp: response.data.main.temp_min,
+      maxTemp: response.data.main.temp_max,
+      longitude: response.data.coord.longitude,
+      latitude: response.data.coord.latitude,
     });
   }
   function handleSearchCity(event) {
     setCity(event.target.value);
   }
+  function showCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(searchCurrentLocation);
+  }
 
+  function searchCurrentLocation() {
+    let lat = weather.latitude;
+    let lon = weather.longitude;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=1f1facc771125b5abc9220b018556632&units=metric`;
+    axios.get(apiUrl).then(showTemperature);
+  }
   function Searching() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=be0dd8f9f76dc215539a73ac2ef0145a
-  &units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=1f1facc771125b5abc9220b018556632&units=metric`;
     axios.get(apiUrl).then(showTemperature);
   }
   function handleSubmit(event) {
@@ -38,8 +56,8 @@ export default function Search(props) {
           <input
             type="text"
             placeholder="Enter a City"
-            autocomplete="off"
-            autofocus="on"
+            autoComplete="off"
+            autoFocus="on"
             className="searchCity"
             onChange={handleSearchCity}
           />
@@ -52,21 +70,15 @@ export default function Search(props) {
           <button
             type="button"
             className="btn btn-info locationIcon"
-            onClick={showTemperature}
+            onClick={showCurrentLocation}
           >
             📍
           </button>
         </form>
-        <CurrentDate />
-
+        <CurrentDate sendData={weather} />
         <hr />
-
-        <CityDisplay sendCity={weather.displayCity} />
-        <DisplayTemperature />
-        <TempDescription />
-        <hr />
-
-        <WeatherElements />
+        <div className="cityDisplay text-uppercase">{weather.displayCity}</div>
+        <TemperatureDisplay sendData={weather} />
       </div>
     );
   } else {
