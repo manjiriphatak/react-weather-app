@@ -2,6 +2,9 @@ import React from "react";
 import "./Forecast.css";
 
 export default function Forecast() {
+  function showForecaste() {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid=1f1facc771125b5abc9220b018556632&units=metric`;
+  }
   return (
     <div className="forcast">
       <div className="forecastContainer">

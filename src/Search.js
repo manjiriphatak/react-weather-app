@@ -34,9 +34,9 @@ export default function Search(props) {
     navigator.geolocation.getCurrentPosition(searchCurrentLocation);
   }
 
-  function searchCurrentLocation() {
-    let lat = weather.latitude;
-    let lon = weather.longitude;
+  function searchCurrentLocation(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=1f1facc771125b5abc9220b018556632&units=metric`;
     axios.get(apiUrl).then(showTemperature);
   }
