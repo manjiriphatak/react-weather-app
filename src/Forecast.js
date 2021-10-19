@@ -1,124 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Forecast.css";
+import axios from "axios";
 
-export default function Forecast() {
-  function showForecaste() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid=1f1facc771125b5abc9220b018556632&units=metric`;
+export default function Forecast(props) {
+  const [displayForecast, setDisplayForecast] = useState("");
+  const [loaded, setLoaded] = useState(false);
+
+  function handleResponse(response) {
+    console.log(response.data.daily);
+    setLoaded(true);
+    setDisplayForecast(response.data.daily);
   }
-  return (
-    <div className="forcast">
-      <div className="forecastContainer">
-        <div className="forecastDay">Mon</div>
-        <div>
-          <input
-            className="forecastIcon"
-            type="image"
-            src="./icons/01d.png"
-            width="60px"
-            alt="forecast icon"
-          />
-        </div>
-        <div className="forecastTemperature">
-          <span className="maxTemp">23°C / </span>
-          <span className="minTemp">10°C</span>
-        </div>
-      </div>
-      <div className="forecastContainer">
-        <div className="forecastDay">Tue</div>
-        <div>
-          <input
-            className="forecastIcon"
-            type="image"
-            src="./icons/01d.png"
-            width="60px"
-            alt="forecast icon"
-          />
-        </div>
-        <div className="forecastTemperature">
-          <span className="maxTemp">23°C / </span>
-          <span className="minTemp">10°C</span>
+
+  if (loaded) {
+    return (
+      <div className="forcast">
+        <div className="forecastContainer">
+          <div className="forecastDay">4</div>
+          <div>
+            <input
+              className="forecastIcon"
+              type="image"
+              src="./icons/01d.png"
+              width="60px"
+              alt="forecast icon"
+            />
+          </div>
+          <div className="forecastTemperature">
+            <span className="maxTemp">{displayForecast[0].temp.max} / </span>
+            <span className="minTemp">{displayForecast[0].temp.min} °C</span>
+          </div>
         </div>
       </div>
-      <div className="forecastContainer">
-        <div className="forecastDay">Wed</div>
-        <div>
-          <input
-            className="forecastIcon"
-            type="image"
-            src="./icons/01d.png"
-            width="60px"
-            alt="forecast icon"
-          />
-        </div>
-        <div className="forecastTemperature">
-          <span className="maxTemp">23°C / </span>
-          <span className="minTemp">10°C</span>
-        </div>
-      </div>
-      <div className="forecastContainer">
-        <div className="forecastDay">Thur</div>
-        <div>
-          <input
-            className="forecastIcon"
-            type="image"
-            src="./icons/01d.png"
-            width="60px"
-            alt="forecast icon"
-          />
-        </div>
-        <div className="forecastTemperature">
-          <span className="maxTemp">23°C / </span>
-          <span className="minTemp">10°C</span>
-        </div>
-      </div>
-      <div className="forecastContainer">
-        <div className="forecastDay">Fri</div>
-        <div>
-          <input
-            className="forecastIcon"
-            type="image"
-            src="./icons/01d.png"
-            width="60px"
-            alt="forecast icon"
-          />
-        </div>
-        <div className="forecastTemperature">
-          <span className="maxTemp">23°C / </span>
-          <span className="minTemp">10°C</span>
-        </div>
-      </div>
-      <div className="forecastContainer">
-        <div className="forecastDay">Sat</div>
-        <div>
-          <input
-            className="forecastIcon"
-            type="image"
-            src="./icons/01d.png"
-            width="60px"
-            alt="forecast icon"
-          />
-        </div>
-        <div className="forecastTemperature">
-          <span className="maxTemp">23°C / </span>
-          <span className="minTemp">10°C</span>
-        </div>
-      </div>
-      <div className="forecastContainer">
-        <div className="forecastDay">Sun</div>
-        <div>
-          <input
-            className="forecastIcon"
-            type="image"
-            src="./icons/01d.png"
-            width="60px"
-            alt="forecast icon"
-          />
-        </div>
-        <div className="forecastTemperature">
-          <span className="maxTemp">23°C / </span>
-          <span className="minTemp">10°C</span>
-        </div>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    let latitude = props.coords.latitude;
+    let longitude = props.coords.longitude;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=1f1facc771125b5abc9220b018556632&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+    return null;
+  }
 }

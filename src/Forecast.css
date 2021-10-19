@@ -19,3 +19,6 @@
   padding-top: 10px;
   cursor: default;
 }
+.minTemp {
+  opacity: 70%;
+}
