@@ -39,11 +39,11 @@ export default function App() {
   function searchCurrentLocation(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d249b724d27ebf34a2220d8959ff0d6a&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=299ee2e1ebf5cfffe52e246ab53d6fb3&units=metric`;
     axios.get(apiUrl).then(showTemperature);
   }
   function Searching() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d249b724d27ebf34a2220d8959ff0d6a&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=299ee2e1ebf5cfffe52e246ab53d6fb3&units=metric`;
     axios.get(apiUrl).then(showTemperature);
   }
   function handleSubmit(event) {

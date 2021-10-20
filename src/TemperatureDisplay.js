@@ -21,18 +21,13 @@ export default function TempratureDisplay(props) {
           </span>
           <span className="col-10 unitButtons">
             <span>
-              <button
-                a
-                href="/"
-                className="unitC active "
-                onClick={showCelsius}
-              >
+              <button a href="" className="unitC active " onClick={showCelsius}>
                 °C
               </button>
             </span>
 
             <span>
-              <button a href="/" className="unitF" onClick={showFahrenheit}>
+              <button a href="" className="unitF" onClick={showFahrenheit}>
                 °F
               </button>
             </span>
@@ -71,7 +66,7 @@ export default function TempratureDisplay(props) {
             </span>
             <span className="col-10 unitButtons">
               <span>
-                <button a href="/" className="unitC " onClick={showCelsius}>
+                <button a href="" className="unitC " onClick={showCelsius}>
                   °C
                 </button>
               </span>
@@ -79,7 +74,7 @@ export default function TempratureDisplay(props) {
               <span>
                 <button
                   a
-                  href="/"
+                  href=""
                   className="unitF active"
                   onClick={showFahrenheit}
                 >
