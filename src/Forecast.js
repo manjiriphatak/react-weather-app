@@ -1,43 +1,41 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Forecast.css";
+import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function Forecast(props) {
   const [loaded, setLoaded] = useState(false);
   const [displayForecast, setDisplayForecast] = useState("");
 
   function handleResponse(response) {
-    console.log(response.data.daily);
-    setLoaded(true);
     setDisplayForecast(response.data.daily);
+    setLoaded(true);
   }
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coords]);
 
   if (loaded) {
     return (
       <div className="forcast">
-        <div className="forecastContainer">
-          <div>
-            <div className="forecastDay">{displayForecast[0].dt}</div>
-            <div>
-              <input
-                className="forecastIcon"
-                type="image"
-                src="./icons/01d.png"
-                width="60px"
-                alt="forecast icon"
-              />
-            </div>
-            <div className="forecastTemperature">
-              <span className="maxTemp">{displayForecast[0].temp.max} / </span>
-              <span className="minTemp"> {displayForecast[0].temp.min} </span>°C
-            </div>
-          </div>
+        <div className="row">
+          {displayForecast.map(function (dailyForecast, index) {
+            if (index < 7) {
+              return (
+                <div className="col forecastContainer" key={index}>
+                  <WeatherForecastDay data={dailyForecast} />
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
     );
   } else {
-    let latitude = props.coords.latitude;
-    let longitude = props.coords.longitude;
+    let latitude = props.coords.lat;
+    let longitude = props.coords.lon;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=299ee2e1ebf5cfffe52e246ab53d6fb3&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);

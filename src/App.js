@@ -13,6 +13,7 @@ export default function App() {
   const [weather, setWeather] = useState({ ready: false });
 
   function showTemperature(response) {
+    console.log(response.data);
     setWeather({
       ready: true,
       displayCity: response.data.name,
@@ -25,8 +26,8 @@ export default function App() {
       feelsLike: response.data.main.feels_like,
       minTemp: response.data.main.temp_min,
       maxTemp: response.data.main.temp_max,
-      longitude: response.data.coord.lon,
-      latitude: response.data.coord.lat,
+
+      coords: response.data.coord,
     });
   }
   function handleSearchCity(event) {
@@ -39,11 +40,11 @@ export default function App() {
   function searchCurrentLocation(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=299ee2e1ebf5cfffe52e246ab53d6fb3&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=c332a760c937fd62475cfacb274cee28&units=metric`;
     axios.get(apiUrl).then(showTemperature);
   }
   function Searching() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=299ee2e1ebf5cfffe52e246ab53d6fb3&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c332a760c937fd62475cfacb274cee28&units=metric`;
     axios.get(apiUrl).then(showTemperature);
   }
   function handleSubmit(event) {
@@ -56,7 +57,7 @@ export default function App() {
         <div className="App">
           <div className="row">
             <div className="col-sm-2 col-md-12 col-lg-4">
-              <Icon />
+              <Icon icon={weather.icon} />
             </div>
 
             <div className="col-sm-4 col-md-12 col-lg-8">
@@ -95,7 +96,7 @@ export default function App() {
             </div>
           </div>
           <hr />
-          <Forecast coords={weather} />
+          <Forecast coords={weather.coords} />
         </div>
         <Footer />
       </div>
