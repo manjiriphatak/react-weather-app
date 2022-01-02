@@ -54,37 +54,37 @@ export default function App() {
     return (
       <div className="container">
         <div className="App">
+          <h1 className="heading">The Weather App</h1>
+          <form>
+            <input
+              type="text"
+              placeholder="Enter a City"
+              autoComplete="off"
+              autoFocus="on"
+              className="searchCity"
+              onChange={handleSearchCity}
+            />
+            <input
+              type="submit"
+              value="Search"
+              className="searchButton"
+              onClick={handleSubmit}
+            />
+            <button
+              type="button"
+              className="btn btn-info locationIcon"
+              onClick={showCurrentLocation}
+            >
+              📍
+            </button>
+          </form>
           <div className="row">
             <div className="col-sm-2 col-md-12 col-lg-4">
               <Icon icon={weather.icon} />
             </div>
 
-            <div className="col-sm-4 col-md-12 col-lg-8">
-              <h1 className="card-title heading">The Weather Project</h1>
+            <div className="col-sm-4 col-md-12 col-lg-8 text-center">
               <div>
-                <form>
-                  <input
-                    type="text"
-                    placeholder="Enter a City"
-                    autoComplete="off"
-                    autoFocus="on"
-                    className="searchCity"
-                    onChange={handleSearchCity}
-                  />
-                  <input
-                    type="submit"
-                    value="Search"
-                    className="searchButton"
-                    onClick={handleSubmit}
-                  />
-                  <button
-                    type="button"
-                    className="btn btn-info locationIcon"
-                    onClick={showCurrentLocation}
-                  >
-                    📍
-                  </button>
-                </form>
                 <CurrentDate sendData={weather} />
                 <hr />
                 <div className="cityDisplay text-uppercase">

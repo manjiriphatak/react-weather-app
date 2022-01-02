@@ -16,10 +16,10 @@ export default function TempratureDisplay(props) {
     return (
       <div>
         <div className="row temp">
-          <span className="col-2 tempDisplay">
+          <span className="col-4 text-right tempDisplay">
             {props.sendData.temperature}
           </span>
-          <span className="col-10 unitButtons">
+          <span className="col-8 text-left unitButtons">
             <span>
               <button a href="" className="unitC active " onClick={showCelsius}>
                 °C
