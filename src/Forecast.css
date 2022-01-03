@@ -7,16 +7,15 @@
   display: inline-block;
   border: 1px solid #e2c9cc;
   box-shadow: 1px 1px 1px 0.5px grey;
-  border-radius: 30px;
-  margin-left: 8px;
-  margin-right: 8px;
+  border-radius: 0.6rem;
+  margin: 0.5rem;
   padding: 10px;
   text-align: center;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 .forecastIcon {
-  padding-top: 10px;
+  padding-top: 0.8rem;
   cursor: default;
 }
 .minTemp {

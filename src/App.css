@@ -13,23 +13,22 @@
   margin: 0;
   padding: 0;
   max-width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgb(3, 48, 146) 0.1%,
+    rgb(34, 44, 185) 41.5%,
+    rgb(4, 118, 248) 100.2%
+  );
 }
 
 .App {
   margin: 0 auto;
-  background: linear-gradient(
-    89deg,
-    rgb(3, 48, 146) 0.1%,
-    rgb(34, 44, 185) 51.5%,
-    rgb(4, 118, 248) 100.2%
-  );
 
   color: white;
 
-  margin-bottom: 10px;
   padding: 40px 20px;
-  /*  border: 3px solid #e2c9cc;
-  border-radius: 20px;
+  /* border: 3px solid #e2c9cc;
+   border-radius: 20px;
  box-shadow: 1px 2px 3px 0.5px grey;*/
   font-family: var(--secondary-font);
 }
@@ -39,13 +38,16 @@
   text-align: center;
   color: #71d2f8;
   text-shadow: 0px 0px 3px rgb(17, 17, 17);
+  margin-bottom: 2rem;
+}
+.mainIcon-section {
+  text-align: center;
 }
 
 .mainIcon {
-  padding: 1rem;
-  text-align: center;
   margin: 0;
   cursor: default;
+  max-width: 50%;
 }
 
 form {
@@ -96,6 +98,10 @@ form {
 .locationIcon:hover {
   background-color: white;
 }
+
+.unitButtons {
+  margin-left: 1rem;
+}
 .unitC {
   border-radius: 35px 0px 0px 35px;
 }
@@ -111,8 +117,10 @@ form {
   box-shadow: 1px 1px 2px rgb(128, 128, 128);
   border: 1px solid #71d2f8;
   position: relative;
-
+  top: -25px;
+  left: 5px;
   transition: all 0.3s ease-in-out;
+  padding: 0.2rem;
 }
 
 .unitC:hover,
@@ -138,7 +146,17 @@ form {
 .cityDisplay {
   text-align: center;
   font-family: var(--primary-font);
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #71d2f8;
   text-shadow: 3px 2px 1px black;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 1024px) {
+  .container {
+    min-height: 100vh;
+  }
+  .App {
+    min-height: 100%;
+  }
 }

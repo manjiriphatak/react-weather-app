@@ -1,13 +1,21 @@
 .footer {
+  background-color: #82adf1;
+  font-size: 0.8rem;
   text-align: center;
-  margin-left: 9px;
-  color: #161e20;
+  color: #302f2f;
 }
 a {
   text-decoration: none;
+  color: #323a3f;
 }
 
 a:hover {
-  color: #161e20;
-  text-shadow: 1px 1px 1px rgb(128, 128, 128);
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
 }

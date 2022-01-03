@@ -40,8 +40,8 @@ export default function CurrentDate(props) {
     minutes = `0${minutes}`;
   }
   return (
-    <span className="CurrentDate text-uppercase">
+    <div className="CurrentDate text-uppercase">
       {day}, {date} {month}, {hours}:{minutes}
-    </span>
+    </div>
   );
 }

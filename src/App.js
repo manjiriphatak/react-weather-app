@@ -77,15 +77,17 @@ export default function App() {
             >
               📍
             </button>
+
+            <CurrentDate sendData={weather} />
           </form>
+          <hr />
           <div className="row">
-            <div className="col-sm-2 col-md-12 col-lg-4">
+            <div className="col-sm-2 col-md-12 col-lg-4 text-justify-center">
               <Icon icon={weather.icon} />
             </div>
 
             <div className="col-sm-4 col-md-12 col-lg-8 text-center">
               <div>
-                <CurrentDate sendData={weather} />
                 <hr />
                 <div className="cityDisplay text-uppercase">
                   {weather.displayCity}
@@ -97,7 +99,9 @@ export default function App() {
           <hr />
           <Forecast coords={weather.coords} />
         </div>
-        <Footer />
+        <div className="">
+          <Footer />
+        </div>
       </div>
     );
   } else {

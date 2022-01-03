@@ -6,7 +6,8 @@
 .CurrentDate {
   text-align: center;
   font-family: var(--secondary-font);
-  color: rgb(255, 254, 254);
+  color: rgb(108, 169, 219);
   font-size: 1rem;
   font-weight: 500;
+  margin-top: 1rem;
 }

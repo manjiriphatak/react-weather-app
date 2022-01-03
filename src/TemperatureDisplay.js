@@ -15,11 +15,9 @@ export default function TempratureDisplay(props) {
   if (unit === "celsius") {
     return (
       <div>
-        <div className="row temp">
-          <span className="col-4 text-right tempDisplay">
-            {props.sendData.temperature}
-          </span>
-          <span className="col-8 text-left unitButtons">
+        <div className="temp">
+          <span className=" tempDisplay">{props.sendData.temperature}</span>
+          <span className=" unitButtons">
             <span>
               <button a href="" className="unitC active " onClick={showCelsius}>
                 °C
@@ -42,14 +40,14 @@ export default function TempratureDisplay(props) {
           <hr />
           <div className="row details">
             <div className="col">
-              MIN Temperature : {Math.round(props.sendData.minTemp)} °C
+              MIN Temp : {Math.round(props.sendData.minTemp)} °C
             </div>
 
             <div className="col">HUMIDITY : {props.sendData.humidity}%</div>
           </div>
           <div className="row details">
             <div className="col">
-              MAX Temperature : {Math.round(props.sendData.maxTemp)} °C
+              MAX Temp: {Math.round(props.sendData.maxTemp)} °C
             </div>
             <div className="col">WIND : {props.sendData.wind} km/hr</div>
           </div>
@@ -60,11 +58,11 @@ export default function TempratureDisplay(props) {
     if (unit === "fahrenheit") {
       return (
         <div>
-          <div className="row temp">
-            <span className="col-2 tempDisplay">
+          <div className="temp">
+            <span className="tempDisplay">
               {Math.round((props.sendData.temperature * 9) / 5 + 32)}
             </span>
-            <span className="col-10 unitButtons">
+            <span className=" unitButtons">
               <span>
                 <button a href="" className="unitC " onClick={showCelsius}>
                   °C
@@ -95,16 +93,16 @@ export default function TempratureDisplay(props) {
             <hr />
             <div className="row details">
               <div className="col">
-                MIN Temperature :{" "}
-                {Math.round((props.sendData.minTemp * 9) / 5 + 32)} °F
+                MIN Temp : {Math.round((props.sendData.minTemp * 9) / 5 + 32)}{" "}
+                °F
               </div>
 
               <div className="col">HUMIDITY : {props.sendData.humidity}%</div>
             </div>
             <div className="row details">
               <div className="col">
-                MAX Temperature :{" "}
-                {Math.round((props.sendData.maxTemp * 9) / 5 + 32)} °F
+                MAX Temp : {Math.round((props.sendData.maxTemp * 9) / 5 + 32)}{" "}
+                °F
               </div>
               <div className="col">WIND : {props.sendData.wind} km/hr</div>
             </div>
