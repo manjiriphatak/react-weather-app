@@ -6,7 +6,7 @@ export default function Icon(props) {
       <input
         type="image"
         src={`/icons/${props.icon}.png`}
-        className="mainIcon"
+        className="mainIcon "
         alt="weather icon"
       />
     </div>

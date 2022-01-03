@@ -52,57 +52,56 @@ export default function App() {
   }
   if (weather.ready) {
     return (
-      <div className="container">
-        <div className="App">
-          <h1 className="heading">The Weather App</h1>
-          <form>
-            <input
-              type="text"
-              placeholder="Enter a City"
-              autoComplete="off"
-              autoFocus="on"
-              className="searchCity"
-              onChange={handleSearchCity}
-            />
-            <input
-              type="submit"
-              value="Search"
-              className="searchButton"
-              onClick={handleSubmit}
-            />
-            <button
-              type="button"
-              className="btn btn-info locationIcon"
-              onClick={showCurrentLocation}
-            >
-              📍
-            </button>
+      <main>
+        <div className="container ">
+          <div className="App">
+            <h1 className="heading">The Weather App</h1>
+            <form>
+              <input
+                type="text"
+                placeholder="Enter a City"
+                autoComplete="off"
+                autoFocus="on"
+                className="searchCity"
+                onChange={handleSearchCity}
+              />
+              <input
+                type="submit"
+                value="Search"
+                className="searchButton"
+                onClick={handleSubmit}
+              />
+              <button
+                type="button"
+                className="btn btn-info locationIcon"
+                onClick={showCurrentLocation}
+              >
+                📍
+              </button>
 
-            <CurrentDate sendData={weather} />
-          </form>
-          <hr />
-          <div className="row">
-            <div className="col-sm-2 col-md-12 col-lg-4 text-justify-center">
-              <Icon icon={weather.icon} />
-            </div>
+              <CurrentDate sendData={weather} />
+            </form>
+            <hr />
+            <div className="row ">
+              <div className=" col-md-12 col-lg-6 d-flex align-items-center  justify-content-center p-2">
+                <Icon icon={weather.icon} />
+              </div>
 
-            <div className="col-sm-4 col-md-12 col-lg-8 text-center">
-              <div>
-                <hr />
+              <div className="col-md-12 col-lg-6  text-center">
                 <div className="cityDisplay text-uppercase">
                   {weather.displayCity}
                 </div>
                 <TemperatureDisplay sendData={weather} />
               </div>
             </div>
+            <hr />
+            <Forecast coords={weather.coords} />
           </div>
-          <hr />
-          <Forecast coords={weather.coords} />
         </div>
         <div className="">
           <Footer />
         </div>
-      </div>
+      </main>
     );
   } else {
     Searching();

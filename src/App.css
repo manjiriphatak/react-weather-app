@@ -7,18 +7,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  letter-spacing: 0.08rem;
 }
-
-.container {
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
+main {
   background: linear-gradient(
     180deg,
     rgb(3, 48, 146) 0.1%,
     rgb(34, 44, 185) 41.5%,
     rgb(4, 118, 248) 100.2%
   );
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
 
 .App {
@@ -42,6 +45,8 @@
 }
 .mainIcon-section {
   text-align: center;
+
+  padding: 0;
 }
 
 .mainIcon {
@@ -152,11 +157,43 @@ form {
 }
 
 /* MEDIA QUERIES */
+@media (min-width: 1200px) {
+  .App {
+    max-width: 70%;
+  }
+}
 @media (min-width: 1024px) {
   .container {
-    min-height: 100vh;
+    max-width: 90%;
+    padding-top: 3rem;
   }
   .App {
-    min-height: 100%;
+    box-shadow: 0px 0px 3px rgb(168, 209, 233);
+    border-radius: 0.6rem;
+    border: 1px solid #e2c9cc7a;
+
+    margin-bottom: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  main {
+    min-height: 100vh;
+  }
+  .container {
+    margin: 0 auto;
+    min-height: 95vh;
+  }
+
+  .mainIcon {
+    max-width: 40%;
+  }
+  .heading {
+    font-size: 4rem;
+  }
+  .cityDisplay {
+    font-size: 4rem;
+  }
+  .tempDisplay {
+    font-size: 4rem;
   }
 }
